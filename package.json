@@ -6,7 +6,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -p 9002",
     "build-storybook": "build-storybook",
     "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build:watch": "NODE_ENV=production webpack --config webpack.config.prod.js --watch",
@@ -14,17 +14,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ealush/emoji-picker-textfields-component.git"
+    "url": "git+https://github.com/inspilab/emoji-picker-textfields-component.git"
   },
   "author": "Evyatar Alush",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ealush/emoji-picker-textfields-component/issues"
+    "url": "https://github.com/inspilab/emoji-picker-textfields-component/issues"
   },
-  "homepage": "https://github.com/ealush/emoji-picker-textfields-component#readme",
+  "homepage": "https://github.com/inspilab/emoji-picker-textfields-component#readme",
   "dependencies": {
     "babel-runtime": "^6.25.0",
-    "emoji-picker-react": "2.0.4"
+    "emoji-picker-react": "git+https://github.com/inspilab/emoji-picker-react.git"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.2.11",
@@ -34,7 +34,6 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "emoji-js": "^3.2.2",
-    "emoji-picker-react": "^1.4.0",
     "eslint": "4.9.0",
     "eslint-plugin-react": "^7.2.0",
     "node-sass": "^4.5.3",

@@ -108,7 +108,7 @@ class EmojiField extends Component {
     onEmojiClick(code, emoji) {
         const value = this.state.value,
             selection = this._field.selectionStart,
-            shortcode = `:${emoji.name}:`,
+            shortcode = emoji.sn || `:${emoji.name}:`,
             v1 = value.slice(0, selection),
             v2 = value.slice(selection),
             newValue = `${v1}${shortcode}${v2}`;
@@ -126,7 +126,7 @@ class EmojiField extends Component {
     }
 
     render() {
-        const { autoClose, onChange, config, fieldType, ...rest } = this.props;
+        const { autoClose, onChange, config, emoji_data, fieldType, ...rest } = this.props;
 
         const isOpenClass = this.state.pickerOpen ? 'shown' : 'hidden',
             className = `emoji-text-field picker-${isOpenClass} emoji-${fieldType}`,
@@ -139,7 +139,7 @@ class EmojiField extends Component {
                 {(isInput) && (<input {...rest} onChange={this.onChange} type="text" ref={ref} value={value}/>)}
                 {(!isInput) && (<textarea {...rest} onChange={this.onChange} ref={ref} value={value}/>)}
                 <a href="#!" className="emoji-trigger" onClick={this.onTriggerClick}></a>
-                { pickerOpen && <EmojiPicker onEmojiClick={this.onEmojiClick} ref={(picker) => this._picker = picker}/>}
+                { pickerOpen && <EmojiPicker onEmojiClick={this.onEmojiClick} emoji_data={emoji_data} ref={(picker) => this._picker = picker}/>}
             </div>
         );
     }
@@ -151,7 +151,8 @@ EmojiField.propTypes = {
     autoClose: PropTypes.bool,
     onChange: PropTypes.func,
     config: PropTypes.object,
-    fieldType: PropTypes.string.isRequired
+    fieldType: PropTypes.string.isRequired,
+    emoji_data: PropTypes.object
 };
 
 export default EmojiField;
