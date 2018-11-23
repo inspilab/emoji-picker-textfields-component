@@ -138,7 +138,7 @@ class EmojiField extends Component {
             <div className={className}>
                 {(isInput) && (<input {...rest} onChange={this.onChange} type="text" ref={ref} value={value}/>)}
                 {(!isInput) && (<textarea {...rest} onChange={this.onChange} ref={ref} value={value}/>)}
-                <a href="#!" className="emoji-trigger" onClick={this.onTriggerClick}></a>
+                <a href="#!" className="emoji-trigger" onClick={this.onTriggerClick} style={{ display: this.props.isTriggerDisabled ? 'none' : undefined }}></a>
                 { pickerOpen && <EmojiPicker onEmojiClick={this.onEmojiClick} emoji_data={emoji_data} ref={(picker) => this._picker = picker}/>}
             </div>
         );
@@ -152,7 +152,8 @@ EmojiField.propTypes = {
     onChange: PropTypes.func,
     config: PropTypes.object,
     fieldType: PropTypes.string.isRequired,
-    emoji_data: PropTypes.object
+    emoji_data: PropTypes.object,
+    isTriggerDisabled: PropTypes.bool,
 };
 
 export default EmojiField;
